@@ -1,0 +1,6 @@
+name: Embetty
+type: module
+description: 'Embetty displays remote content like tweets or YouTube videos without compromising your privacy.'
+package: Visualisation
+core: 8.x
+configure: embetty.settings
