@@ -1,0 +1,5 @@
+name = Embetty
+description = "Embetty displays remote content like tweets or YouTube videos without compromising your privacy."
+package = Visualisation
+core = 7.x
+configure = admin/config/services/embetty

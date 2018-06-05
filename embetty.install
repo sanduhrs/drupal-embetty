@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Embetty install.
+ */
+
+/**
+ * Implements hook_requirements().
+ */
+function embetty_requirements($phase) {
+  $requirements = [];
+  $filepath = DRUPAL_ROOT . '/sites/all/libraries/embetty/embetty.js';
+  if ($phase == 'install' || $phase == 'runtime') {
+    $requirements['embetty'] = [
+      'title' => t('Embetty'),
+      'description' => t('Download the library from !github and install it to <em>/libraries/embetty/embetty.js</em>', [
+        '!github' => l(t('Github'), 'https://github.com/heiseonline/embetty'),
+      ]),
+      'severity' => file_exists($filepath) ? REQUIREMENT_OK : REQUIREMENT_ERROR,
+    ];
+  }
+  return $requirements;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function embetty_uninstall() {
+  variable_del('embetty_server');
+}
